@@ -1,0 +1,289 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>HuLiPTJob_HomePage</title>
+    <style type="text/css">
+        body {
+            margin: 0;
+            height: 1100px;
+        }
+
+        .HuLiPTJob_HomePage_AllContentDiv {
+            margin: auto;
+            background-color: #b6ff00;
+            width: 1280px;
+            height: 1200px;
+        }
+
+        .HuLiPTJob_HomePage_header {
+            margin: auto;
+            background-color: #000000;
+            height: 60px;
+            width: 1280px;
+        }
+
+        #HuLiPTJob_HomePage_header_logo {
+            float: left;
+            width: 200px;
+            height: 60px;
+            background-image: url(logo/mainlogo.png);
+        }
+
+        #navigation {
+            float: left;
+            margin-left: 30px;
+            width: 700px;
+            height: 60px;
+            background-color: #000000;
+        }
+
+        .HuLiPTJob_HomePage_header #UserInformation {
+            float: left;
+            margin-left: 30px;
+            width: 200px;
+            height: 60px;
+            background-color: #000000;
+        }
+
+        .HuLiPTJob_HomePage_ShowNotice {
+            width: 1280px;
+            height: 400px;
+        }
+
+            .HuLiPTJob_HomePage_ShowNotice .CenterContent {
+                margin: auto;
+                width: 1000px;
+                height: 400px;
+                background-color: #b200ff;
+            }
+
+        .HuLiPTJob_HomePage_latestPTJob {
+            width: 1280px;
+            height: 400px;
+            background-color: #0094ff;
+        }
+
+        .HuLiPTJob_HomePage_footer {
+            width: 1280px;
+            height: 200px;
+            background-color: aliceblue;
+        }
+
+        #navigation ul {
+            list-style: none;
+            position: absolute;
+            margin-top: 0;
+        }
+
+        #navigation li {
+            float: left;
+            background-color: #000000;
+            width: 100px;
+            height: 40px;
+            padding-top: 20px;
+            text-align: center;
+            cursor: pointer;
+        }
+
+            #navigation li a {
+                text-decoration: none;
+                font-size: 18px;
+                color: #FFFFFF;
+                font-family: 'Microsoft YaHei';
+            }
+
+            #navigation li:hover {
+                background-color: #0094ff;
+            }
+
+        .btn_HomePage_Registration {
+            display: block;
+            float: left;
+            width: 60px;
+            height: 20px;
+            margin-top: 25px;
+            margin-left: 30px;
+            border: 1px solid #0094ff;
+            background-color: #0094ff;
+            cursor: pointer;
+            text-align: center;
+            font-family: "Microsoft YaHei UI";
+        }
+
+        .btn_HomePage_Login {
+            float: left;
+            display: block;
+            width: 60px;
+            height: 20px;
+            margin-top: 25px;
+            margin-left: 5px;
+            border: 1px solid #0094ff;
+            background-color: #0094ff;
+            cursor: pointer;
+            text-align: center;
+            font-family: "Microsoft YaHei UI";
+        }
+
+        .btnReghover {
+            background-color: #0033FF;
+        }
+        .divLoginWin{
+            margin:auto;
+            background-color:#f2e6eb;
+            width:400px;
+            height:600px;
+        }   
+       /* #divLoginPopupBox{
+            position:fixed;          
+           width:100%;
+           height:2000px;
+            background-color:#808080;
+            visibility:hidden;
+            z-index:12333;          
+            filter:alpha(opacity=90);  
+            -moz-opacity:0.9;  
+           -khtml-opacity: 0.9;  
+           opacity: 0.9;  
+        } 
+        #popContent{
+            margin:auto;
+            width:400px;
+            height:300px;
+            background-color:#b6ff00;
+            filter:alpha(opacity=100);  
+            -moz-opacity:1;  
+           -khtml-opacity: 1;  
+           opacity: 1;  
+        }      */
+        #divLoginPopupBox {
+            width: 300px;
+            height: 200px;
+            margin-left:-50px;         
+            background-color: #808080;
+            visibility: hidden;
+            overflow:hidden;
+            z-index:12333; 
+            border:2px solid #0094ff;
+        }
+          
+    </style>
+    <script src="jquery-1.11.3.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.btn_HomePage_Registration').hover(
+                function () {
+                    $(this).addClass('btnReghover');
+                },
+                function () {
+                    $(this).removeClass('btnReghover');
+                }
+            )
+            $('.btn_HomePage_Login').hover(
+               function () {
+                   $(this).addClass('btnReghover');
+               },
+               function () {
+                   $(this).removeClass('btnReghover');
+               }
+           )
+        });
+    </script>
+    <script type="text/javascript">      
+        function FuncNavToReg()
+        {
+            window.location.href = "Registration.html";
+        }
+        function FuncNavToLoginDiv()
+        {
+            var popup = document.getElementById("divLoginPopupBox");
+            popup.style.visibility = "visible";
+        }
+    </script>
+
+    <script type="text/javascript">
+        var CookieUtil = {
+
+            get: function (name) {
+                var cookieName = encodeURIComponent(name) + "=",
+                    cookieStart = document.cookie.indexOf(cookieName),
+                    cookieValue = null;
+
+                if (cookieStart > -1) {
+                    var cookieEnd = document.cookie.indexOf(";", cookieStart);
+                    if (cookieEnd == -1){
+                        cookieEnd = document.cookie.length;
+                }
+                cookieValue = decodeURIComponent(document.cookie.substring(cookieStart + cookieName.length, cookieEnd));
+            }
+                return cookieValue;
+            },
+
+            set: function (name, value, expires, path, domain, secure) {
+                var cookieText = encodeURIComponent(name) + "=" + encodeURIComponent(value);
+                if (expires instanceof Date) {
+                    cookieText += "; expires=" + expires.toGMTString();
+                }
+                if (path) {
+                    cookieText += "; path=" + path;
+                }
+                if (domain) {
+                    cookieText += "; domain=" + domain;
+                }
+                if (secure) {
+                    cookieText += "; secure";
+                }
+                document.cookie = cookieText;
+            },
+
+            unset: function (name, path, domain, secure) {
+                this.set(name, "", new Date(0), path, domain, secure);
+            }
+        };
+        function funCookie() {
+            if (CookieUtil.get("username") == null) {
+                var uname = document.getElementById("una").value;
+                var passw = document.getElementById("pwd").value;
+                CookieUtil.set("username", uname);
+                CookieUtil.set("passwd", passw);
+            }
+            else {                
+                alert(CookieUtil.get("username"));
+                alert(CookieUtil.get("passwd"));
+            }
+        }
+    </script>
+</head>
+<body>   
+    <div class="HuLiPTJob_HomePage_AllContentDiv">
+        <div class="HuLiPTJob_HomePage_header">
+            <div id="HuLiPTJob_HomePage_header_logo"></div>
+            <div id="navigation">
+                <ul>
+                    <li><a href="index.html">兼职首页</a></li>
+                    <li><a href="HuLiPTJobSearchPTJob.aspx">寻找兼职</a></li>
+                    <li><a href="HuLiPTJobPublishPTJob.aspx">发布兼职</a></li>
+                    <li><a href="#">帮助信息</a></li>
+                </ul>
+            </div>
+            <div id="UserInformation">
+                <span class="btn_HomePage_Registration" onclick="FuncNavToReg()">注册</span>
+                <span class="btn_HomePage_Login" onclick="FuncNavToLoginDiv()">登陆</span> 
+                <div id="divLoginPopupBox">
+                    <form method="post" id="#popupform" action="LoginPopupBox.ashx">
+                        <p><label>用户名：</label><input type="text" name="username" id="una"/></p>
+                        <p><label>密码：</label><input type="password" name="passwd" id="pwd" /></p>
+                        <p><input type="submit" value="登陆" name="login" onclick="funCookie()"/></p>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="HuLiPTJob_HomePage_ShowNotice">
+            <div class="CenterContent">              
+            </div>
+        </div>
+        <div class="HuLiPTJob_HomePage_latestPTJob">HuLiPTJob_HomePage_latestPTJob</div>
+        <div class="HuLiPTJob_HomePage_footer">HuLiPTJob_HomePage_footer</div>
+    </div>    
+</body>
+</html>
